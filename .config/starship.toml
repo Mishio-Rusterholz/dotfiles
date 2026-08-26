@@ -1,0 +1,78 @@
+# Get a blank line between prompts
+add_newline = false
+
+# Use custom format that groups modules with separators
+format = """
+[](bg:none fg:#3B4252)\
+$os\
+$username\
+[](fg:#3B4252 bg:#434C5E)\
+$directory\
+[](fg:#434C5E bg:#4C566A)\
+$git_branch\
+$git_status\
+$status\
+[](fg:#4C566A bg:#81A1C1)\
+$c$elixir$elm$golang$haskell$java$julia$nodejs$nim$rust\
+[](fg:#81A1C1 bg:#88C0D0)\
+$time\
+[](fg:#88C0D0 bg:none) \
+"""
+
+[os]
+disabled = false
+style = "bg:#3B4252 fg:#E5E9F0"
+
+[os.symbols]
+Windows = "󰍲 "
+Ubuntu = " "
+Macos = " "
+Linux = " "  # Standard Linux Penguin
+# If you just want a generic shell prompt instead:
+Unknown = "🐚 "
+
+[username]
+show_always = true
+style_user = "bg:#3B4252 fg:#E5E9F0"
+format = '[$user]($style)'
+
+[directory]
+style = "bg:#434C5E fg:#E5E9F0"
+format = "[ $path ]($style)"
+truncation_length = 3
+
+[git_branch]
+symbol = " "
+style = "bg:#4C566A fg:#E5E9F0"
+format = '[ $symbol$branch ]($style)'
+
+[git_status]
+style = "bg:#4C566A fg:#E5E9F0"
+format = '[$all_status$ahead_behind ]($style)'
+
+[status]
+disabled = false
+style = "bg:#4C566A fg:#E5E9F0"
+format = '[ $symbol$status ]($style)'
+symbol = "✖ "
+
+[nodejs]
+symbol = " "
+style = "bg:#81A1C1 fg:#2E3440"
+format = '[ $symbol($version) ]($style)'
+
+[rust]
+symbol = " "
+style = "bg:#81A1C1 fg:#2E3440"
+format = '[ $symbol($version) ]($style)'
+
+[time]
+disabled = false
+time_format = "%H:%M:%S"
+style = "bg:#88C0D0 fg:#2E3440"
+format = '[ $time ]($style)'
+
+# Add a character at the start of the next line
+[character]
+success_symbol = "[❯](bold green)"
+error_symbol = "[❯](bold red)"
